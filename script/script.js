@@ -1,23 +1,17 @@
-// [[12345], [1234], []]
-
-// let selectedSquare = document.querySelector(`.col:nth-chil(${3}) .square:nth-child(${2})`)
-
 
 /* COMEÇO DECLARAÇÃO VARIÁVEIS */
 
 
 
-// const gameTable = [
-// [1,2,3,4,5,6],
-// [1,2,3,4,5,6],
-// [1,2,3,4,5,6],
-// [1,2,3,4,5,6],
-// [1,2,3,4,5,6],
-// [1,2,3,4,5,6],
-// [1,2,3,4,5,6]
-// ]
-
-
+const gameTable = [
+[0,0,0,0,0,0],
+[0,0,0,0,0,0],
+[0,0,0,0,0,0],
+[0,0,0,0,0,0],
+[0,0,0,0,0,0],
+[0,0,0,0,0,0],
+[0,0,0,0,0,0]
+]
 
 
 
@@ -44,22 +38,54 @@ function game() {
     
     checkDraw()
 
+    showResult()
 }
 
 
+function tableGenerator() {
+
+
+}
+
+
+function checkViability() {
+
+    
+}
+
+
+function switchPlayer() {
+
+    
+}
+
+
+function createCircle() {
+
+    
+}
 
 
 function checkWin() {
 
 
-    checkHorizontal()
-    checkVertical()
-    checkDiagonal()
-
+    checkHorizontal(i, j)
+    checkVertical(i, j)
+    checkDiagonal(i, j)
+    checkDiagonalReverse(i, j)
 
 }
 
 
+function checkDraw() {
 
+    
+}
+
+
+function showResult() {
+
+    
+}
 
 /* FIM DAS FUNÇÕES */
