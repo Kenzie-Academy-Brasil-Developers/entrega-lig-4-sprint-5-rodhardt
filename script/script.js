@@ -48,8 +48,13 @@ function tableGenerator() {
 }
 
 
-function checkViability() {
+function checkViability(col) {
 
+    if (col.includes(0)) {
+        return true
+    } else {
+        return false
+    }
     
 }
 
