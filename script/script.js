@@ -78,15 +78,23 @@ function checkWin() {
 
 
 function checkDraw() {
-    
+
 }
 
-function showResult(result) {
+function showResult(results) {
 
     const result = document.getElementById("resultModal");
     const text = document.getElementById("textResult");
 
-    text.innerHTML = `Parabéns ${result} você nos ajudou com as esferas`
+    if(results === undefined) {
+
+        text.innerHTML = `Poxa :( infelizmente dessa vez você não conseguir nos ajudar. Tente novamente`
+    }  
+    
+    else {
+      
+        text.innerHTML = `Parabéns ${results} você nos ajudou com as esferas`
+    }
     result.classList.add("result");
 }
 
