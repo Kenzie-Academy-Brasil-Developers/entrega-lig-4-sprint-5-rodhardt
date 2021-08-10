@@ -186,67 +186,69 @@ function showResult() {
 // -----------------------------
 //-   COMBINAÇÕES POR ÍNDICE
 //------------------------------
+const tableID = [
+  [1,2,3,4,5,6],
+  [7,8,9,10,11,12],
+  [13,14,15,16,17,18],
+  [19,20,21,22,23,24],
+  [25,26,27,28,29,30],
+  [31,32,33,34,35,36],
+  [37,38,39,40,41,42],
+  ]
+  
+let win = 4
+let colNumber = tableID.length
+let rowNumber = tableID[0].length
+let maxRowCombination = rowNumber - win + 1
+let maxColCombination = colNumber - win + 1
 
 
-let colNumber = gameTable.length
-let rowNumber = gameTable[0].length
-let combination = 4
-let maxColCombination = colNumber - combination
-let rowRange = rowNumber - combination
 let possibleResults = []
 
 
-const tableID = [
-    [1,2,3,4,5,6],
-    [7,8,9,10,11,12],
-    [13,14,15,16,17,18],
-    [19,20,21,22,23,24],
-    [25,26,27,28,29,30],
-    [31,32,33,34,35,36],
-    [37,38,39,40,41,42]
-    ]
-    
+
+
     function horizontalGenerator() {
-      for (let i = 0; i < 7; i++) {
-        for (let r = 0; r < 3; r++) {
-          let combination = []
-          for (let j = 0; j < 4; j++) {
-            combination.push(tableID[i][j + r])
+      for (let i = 0; i < colNumber; i++) {
+        for (let r = 0; r < maxRowCombination; r++) {
+          let arrayCombination = []
+          for (let j = 0; j < win; j++) {
+            arrayCombination.push(tableID[i][j + r])
           }
-          possibleResults.push(combination)
+          possibleResults.push(arrayCombination)
         }
       }
     }
     function diagonalDownGenerator() {
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < maxColCombination; i++) {
           for (let r = 0; r < 3; r++) {
-            let combination = []
-            for (let j = 0; j < 4; j++) {
-              combination.push(tableID[i + j][j + r])
+            let arrayCombination = []
+            for (let j = 0; j < win; j++) {
+              arrayCombination.push(tableID[i + j][j + r])
             }
-            possibleResults.push(combination)
+            possibleResults.push(arrayCombination)
           }
         }
     }
     function verticalGenerator() {
-      for (let i = 0; i < 6; i++) {
-        for (let r = 0; r < 4; r++) {
-          let combination = []
-          for (let j = 0; j < 4; j++) {
-            combination.push(tableID[j + r][i])
+      for (let i = 0; i < rowNumber; i++) {
+        for (let r = 0; r < maxColCombination; r++) {
+          let arrayCombination = []
+          for (let j = 0; j < win; j++) {
+            arrayCombination.push(tableID[j + r][i])
           }
-          possibleResults.push(combination)
+          possibleResults.push(arrayCombination)
         }
       }
     }
     function diagonalUpGenerator() {
-      for (let i = 3; i < 7; i++) {
-          for (let r = 0; r < 3; r++) {
-            let combination = []
-            for (let j = 0; j < 4; j++) {
-              combination.push(tableID[i - j][j + r])
+      for (let i = maxRowCombination; i < colNumber; i++) {
+          for (let r = 0; r < maxRowCombination; r++) {
+            let arrayCombination = []
+            for (let j = 0; j < win; j++) {
+              arrayCombination.push(tableID[i - j][j + r])
             }
-            possibleResults.push(combination)
+            possibleResults.push(arrayCombination)
           }
         }
     }
@@ -257,3 +259,4 @@ const tableID = [
       diagonalUpGenerator()
     }
     possibilitiesGenerator()
+    
