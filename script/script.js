@@ -78,14 +78,20 @@ function checkWin() {
 
 
 function checkDraw() {
-
     
 }
 
+function showResult(result) {
 
-function showResult() {
+    const result = document.getElementById("resultModal");
+    const text = document.getElementById("textResult");
 
-    
+    text.innerHTML = `Parabéns ${result} você nos ajudou com as esferas`
+    result.classList.add("result");
 }
+
+const again = document.getElementById("again")
+
+again.addEventListener("click", () =>  window.location.reload());
 
 /* FIM DAS FUNÇÕES */
