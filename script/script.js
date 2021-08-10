@@ -94,7 +94,7 @@ function checkDraw() {
     }
     
     if(count === gameTable.length) {
-        showResultDraw()
+        showResult()
     }
 }
 
