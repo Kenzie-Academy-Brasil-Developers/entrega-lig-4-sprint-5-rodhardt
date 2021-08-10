@@ -101,7 +101,7 @@ function showResult() {
 // let table = 42
 // let victoryCondition = 4
 
-
+// teste token
 
 // // ---------------   HORIZONTAL  --------------------
     // const generatorH = (table, value) => {
