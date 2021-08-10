@@ -79,13 +79,23 @@ function checkWin() {
 
 function checkDraw() {
 
+    let count = 0;
+
+    for(let i = 0; i < gameTable.length; i++) {
+        
+        let colunm = gameTable[i];
+
+        for(let j = 0; j < 1; j++) {
+            
+            if(colunm[j] !== 0) {
+                count++
+            }
+        }
+    }
     
-}
-
-
-function showResult() {
-
-    
+    if(count === gameTable.length) {
+        showResultDraw()
+    }
 }
 
 /* FIM DAS FUNÇÕES */
