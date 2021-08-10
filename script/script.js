@@ -97,86 +97,163 @@ function showResult() {
 
 
 
-let possibilities = []
-let table = 42
-let victoryCondition = 4
+// let possibleResults = []
+// let table = 42
+// let victoryCondition = 4
 
 
 
-// ---------------   HORIZONTAL  --------------------
-const generatorH = (table, value) => {
-    for(let i = 1; i <= table; i+=7){
-        let init = i
-            for(let j = 0; j < victoryCondition; j++){
-                if(init + j === value){
-                    possibilities.push(multiplyH(value))
-                }
+// // ---------------   HORIZONTAL  --------------------
+    // const generatorH = (table, value) => {
+    //     for(let i = 1; i <= table; i+=7){
+    //         let init = i
+    //             for(let j = 0; j < victoryCondition; j++){
+    //                 if(init + j === value){
+    //                     possibleResults.push(multiplyH(value))
+    //                 }
+    //             }
+    //     }
+    // }
+    // const multiplyH  = (value) => {
+    //     let output = []
+    //     for(let i = 0; i < victoryCondition; i++){
+    //         output.push(value + i)
+    //     }
+    //     return output
+    // }
+    // for(let i = 0; i < table; i++){
+    //     generatorH(table, i)
+    // }
+
+    // //=----- VERTICAL ---------
+    // const multiplyV = (value) => {
+    //     let output = [value]
+    //     for(let i = 0; i < 3; i++){
+    //         output.push(value += 7)
+    //     }
+    //     return output
+    // }
+    // for(let i = 1; i <= table / 2; i++){
+    //     possibleResults.push(multiplyV(i))
+    // }
+    // // ----------DIAGONAL--------------
+    // const generatorDiagonal = (table, valor) => {
+    //     for(let i = 1; i <= table; i+=7){
+    //         let init = i
+    //             for(let j = 0; j < victoryCondition; j++){
+    //                 if(init + j === valor){
+    //                     possibleResults.push(multiplyDiagonal(valor))
+    //                 }
+    //             }
+    //     }
+    // }
+    // const multiplyDiagonal =  (value) => {
+    //     let output = [value]
+    //     for(let i = 0; i < 3; i++){
+    //         output.push(value += 8)
+    //     }
+    //     return output
+    // }
+    // for(let i = 0; i <= 18; i++){
+    //     generatorDiagonal(table, i)
+    // }
+    // //-------------Reverse--------------
+    // const generatorDiagonalReverse = (table, valor) => {
+    //     for(let i = 20; i <= table; i++){
+    //         if(i % 7 === 0){
+    //             let init = i + 1
+    //             for(let j = 0; j < victoryCondition; j++){
+    //                 if(init + j === valor){
+    //                     possibleResults.push(multiplicaDiagonalReverse(valor))
+    //                 }
+    //             }
+    //         } 
+    //     }
+    // }
+    // const multiplicaDiagonalReverse =  (value) => {
+    //     let output = [value]
+    //     for(let i = 0; i < 3; i++){
+    //         output.push(value -= 6)
+    //     }
+    //     return output
+    // }
+    // for(let i = 0; i <= table; i++){
+    //     generatorDiagonalReverse(table, i)
+    // }
+
+
+
+// -----------------------------
+//-   COMBINAÇÕES POR ÍNDICE
+//------------------------------
+
+
+let colNumber = gameTable.length
+let rowNumber = gameTable[0].length
+let combination = 4
+let maxColCombination = colNumber - combination
+let rowRange = rowNumber - combination
+let possibleResults = []
+
+
+const tableID = [
+    [1,2,3,4,5,6],
+    [7,8,9,10,11,12],
+    [13,14,15,16,17,18],
+    [19,20,21,22,23,24],
+    [25,26,27,28,29,30],
+    [31,32,33,34,35,36],
+    [37,38,39,40,41,42]
+    ]
+    
+    function horizontalGenerator() {
+      for (let i = 0; i < 7; i++) {
+        for (let r = 0; r < 3; r++) {
+          let combination = []
+          for (let j = 0; j < 4; j++) {
+            combination.push(tableID[i][j + r])
+          }
+          possibleResults.push(combination)
+        }
+      }
+    }
+    function diagonalDownGenerator() {
+      for (let i = 0; i < 4; i++) {
+          for (let r = 0; r < 3; r++) {
+            let combination = []
+            for (let j = 0; j < 4; j++) {
+              combination.push(tableID[i + j][j + r])
             }
+            possibleResults.push(combination)
+          }
+        }
     }
-}
-const multiplyH  = (value) => {
-    let output = []
-    for(let i = 0; i < victoryCondition; i++){
-        output.push(value + i)
+    function verticalGenerator() {
+      for (let i = 0; i < 6; i++) {
+        for (let r = 0; r < 4; r++) {
+          let combination = []
+          for (let j = 0; j < 4; j++) {
+            combination.push(tableID[j + r][i])
+          }
+          possibleResults.push(combination)
+        }
+      }
     }
-    return output
-}
-for(let i = 0; i < table; i++){
-    generatorH(table, i)
-}
-
-//=----- VERTICAL ---------
-const multiplyV = (value) => {
-    let output = [value]
-    for(let i = 0; i < 3; i++){
-        output.push(value += 7)
-    }
-    return output
-}
-for(let i = 1; i <= table / 2; i++){
-    possibilities.push(multiplyV(i))
-}
-// ----------DIAGONAL--------------
-const generatorDiagonal = (table, valor) => {
-    for(let i = 1; i <= table; i+=7){
-        let init = i
-            for(let j = 0; j < victoryCondition; j++){
-                if(init + j === valor){
-                    possibilities.push(multiplyDiagonal(valor))
-                }
+    function diagonalUpGenerator() {
+      for (let i = 3; i < 7; i++) {
+          for (let r = 0; r < 3; r++) {
+            let combination = []
+            for (let j = 0; j < 4; j++) {
+              combination.push(tableID[i - j][j + r])
             }
+            possibleResults.push(combination)
+          }
+        }
     }
-}
-const multiplyDiagonal =  (value) => {
-    let output = [value]
-    for(let i = 0; i < 3; i++){
-        output.push(value += 8)
+    function possibilitiesGenerator() {
+      horizontalGenerator()
+      diagonalDownGenerator()
+      verticalGenerator()
+      diagonalUpGenerator()
     }
-    return output
-}
-for(let i = 0; i <= 18; i++){
-    generatorDiagonal(table, i)
-}
-//-------------Reverse--------------
-const generatorDiagonalReverse = (table, valor) => {
-    for(let i = 20; i <= table; i++){
-        if(i % 7 === 0){
-            let init = i + 1
-            for(let j = 0; j < victoryCondition; j++){
-                if(init + j === valor){
-                    possibilities.push(multiplicaDiagonalReverse(valor))
-                }
-            }
-        } 
-    }
-}
-const multiplicaDiagonalReverse =  (value) => {
-    let output = [value]
-    for(let i = 0; i < 3; i++){
-        output.push(value -= 6)
-    }
-    return output
-}
-for(let i = 0; i <= table; i++){
-    generatorDiagonalReverse(table, i)
-}
+    possibilitiesGenerator()
