@@ -1,23 +1,35 @@
-
-
-
 .container {
-    display: flex;
-
-
+  display: flex;
 }
 
 .col {
-    width: calc(100%/7);
-    height: calc(100%/7);
-    background-color: blue;
-    display: flex;
-    flex-direction: column;
+  width: calc(100% / 7);
+  height: calc(100% / 7);
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
 }
 
 .square {
-    width: 100%;
-    height: 60px;
-    background-color: red;
-    border: 1px solid black;
+  width: 100%;
+  height: 60px;
+  background-color: red;
+  border: 1px solid black;
+}
+
+.player1 {
+  height: 50px;
+  width: 50px;
+  clip-path: circle();
+  background-image: url(bola.png);
+  background-size: 71px 49px;
+  background-position-x: center;
+}
+.player2 {
+  background-image: url(bola2.png);
+  height: 50px;
+  width: 50px;
+  clip-path: circle();
+  background-size: 71px 49px;
+  background-position-x: center;
 }

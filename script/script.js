@@ -1,90 +1,57 @@
-
 /* COMEÇO DECLARAÇÃO VARIÁVEIS */
 
-let playerOneChoices = []
-let playerTwoChoices = []
+let playerOneChoices = [];
+let playerTwoChoices = [];
 
-let currentColumn
+let currentColumn;
 
-let currentPlayer = "player1"
+let currentPlayer = "player1";
 
 /* FIM DECLARAÇÃO VARIÁVEIS */
 
-
-
-
 /* COMEÇO DAS FUNÇÕES */
 
-
-
-tableGenerator()
-
-
+tableGenerator();
 
 function game(event) {
-
-  currentColumn
+  currentColumn;
 
   if (checkViability()) {
-    createDisk()
-    switchPlayer()
+    createDisk();
+    switchPlayer();
   }
-    
+
   if (checkWin()) {
-    showResult("win")
-  }    
+    showResult("win");
+  }
 
   if (checkDraw()) {
-    showResult("draw")
+    showResult("draw");
   }
-  
 }
 
+function tableGenerator() {}
 
-function tableGenerator() {
-
-
-}
-
-
-function checkViability() {
-
-    
-}
-
+function checkViability() {}
 
 function switchPlayer() {
-
-    
+  if (currentPlayer === "player1") {
+    player.classList.add(".player1");
+    currentPlayer = "player2";
+  } else {
+    currentPlayer = "player1";
+    player.classList.add(".player2");
+  }
 }
 
+function createDisk() {}
 
-function createDisk() {
+function checkWin() {}
 
+function checkDraw() {}
 
-}
+function showResult() {}
 
-
-function checkWin() {
-
-
-}
-
-
-function checkDraw() {
-
-
-}
-
-
-function showResult() {
-
-    
-}
-
-
-function resetGame() {
-
-}
+function resetGame() {}
 
 /* FIM DAS FUNÇÕES */
