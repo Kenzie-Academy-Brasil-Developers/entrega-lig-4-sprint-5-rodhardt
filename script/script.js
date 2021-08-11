@@ -19,9 +19,12 @@ let currentPlayer = "player1"
 
 let mainGame = document.querySelector(".main-game");
 
+const result = document.getElementById("resultModal");
+const text = document.getElementById("textResult");
+const again = document.getElementById("again")
+
+
 let columns
-
-
 
 
 /* FIM DECLARAÇÃO VARIÁVEIS */
@@ -132,6 +135,20 @@ const checkWin = () => {
 }
 
 
+const showResult = (results) => {
+
+  if(results === "win") {
+    text.innerHTML = `${currentPlayer}!!! O mizeravi é um gênio `
+  }  
+
+  else {
+    text.innerHTML = `Poxa :( infelizmente dessa vez você não conseguir nos ajudar. Tente novamente`
+  }
+
+  result.classList.remove("hidden");
+}
+
+again.addEventListener("click", () =>  window.location.reload());
 
 
 
@@ -140,8 +157,6 @@ const checkWin = () => {
 
 
 function checkDraw() {}
-
-function showResult() {}
 
 function resetGame() {}
 
@@ -209,7 +224,7 @@ const diagonalUpGenerator = () => {
         combination.push(tableID[i - j][j + r])
       }
       possibilities.push(combination)
-      }
+    }
   }
 }
 
@@ -222,11 +237,10 @@ const win = (player, condicao) => {
         count++
       }
     }
-}
-
-if(count === combinationCircle){
-  return true
-}
+  }
+  if(count === combinationCircle){
+    return true
+  }
   return false
 }
 
@@ -240,7 +254,5 @@ possibilitiesGenerator()
 
 
 
-    
+/* FIM DAS FUNÇÕES */
 
-    
-    

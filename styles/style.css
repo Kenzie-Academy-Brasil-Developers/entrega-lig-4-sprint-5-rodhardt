@@ -1,6 +1,5 @@
 .container {
   display: flex;
-
 }
 
 .main-game {
@@ -34,6 +33,7 @@
 }
 
 
+
 .disk {
   height: 50px;
   width: 50px;
@@ -51,4 +51,54 @@
   background-color: yellow;
 }
 
+
+
+
+.containerModal {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+}
+
+.modal {
+    background-color: black;
+    width: 80%;
+    height: 300px;
+    color: #fff;
+    border: solid 8px gold;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+#textResult {
+    font-size: 1.3rem;
+    text-align: center;
+    font-family: monospace;
+    line-height: 1.8rem;
+}
+
+#again {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+}
+
+.hidden {
+    display: none;
+}
 
