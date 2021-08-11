@@ -15,19 +15,9 @@ let playerTwoChoices = []
 /* COMEÇO DECLARAÇÃO VARIÁVEIS */
 
 
+let currentColumn
 
-const gameTable = [
-[0,0,0,0,0,0],
-[0,0,0,0,0,0],
-[0,0,0,0,0,0],
-[0,0,0,0,0,0],
-[0,0,0,0,0,0],
-[0,0,0,0,0,0],
-[0,0,0,0,0,0]
-]
-
-
-
+let currentPlayer = "player1"
 
 /* FIM DECLARAÇÃO VARIÁVEIS */
 
@@ -38,20 +28,27 @@ const gameTable = [
 
 
 
-function game() {
+tableGenerator()
 
-    tableGenerator()
 
-    checkViability()
+
+function game(event) {
+
+  currentColumn
+
+  if (checkViability()) {
+    createDisk()
     switchPlayer()
+  }
     
-    createCircle()
+  if (checkWin()) {
+    showResult("win")
+  }    
 
-    checkWin()
-    
-    checkDraw()
-
-    showResult()
+  if (checkDraw()) {
+    showResult("draw")
+  }
+  
 }
 
 
@@ -73,9 +70,9 @@ function switchPlayer() {
 }
 
 
-function createCircle() {
+function createDisk() {
 
-    
+
 }
 
 const checkWin = () => {
@@ -97,7 +94,7 @@ const checkWin = () => {
 
 function checkDraw() {
 
-    
+
 }
 
 
@@ -106,9 +103,10 @@ function showResult() {
     
 }
 
-/* FIM DAS FUNÇÕES */
 
+function resetGame() {
 
+}
 
 /* FUNÇÕES FILIPE POSSIBILIDADES */
 
