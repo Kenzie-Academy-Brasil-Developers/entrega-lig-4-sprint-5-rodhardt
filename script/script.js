@@ -85,6 +85,12 @@ function showResult() {
 
 function resetGame() {
 
+  mainGame.innerText = ""
+  tableGenerator()
+  currentPlayer = "player1"
+  playerOneChoices = []
+  playerTwoChoices = []
+
 }
 
 /* FIM DAS FUNÇÕES */
