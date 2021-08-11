@@ -79,23 +79,10 @@ function checkWin() {
 
 function checkDraw() {
 
-    let count = 0;
+    let squareCount = document.querySelectorAll(".square");
+    let diskCount = document.querySelectorAll(".disk");
 
-    for(let i = 0; i < gameTable.length; i++) {
-        
-        let colunm = gameTable[i];
-
-        for(let j = 0; j < 1; j++) {
-            
-            if(colunm[j] !== 0) {
-                count++
-            }
-        }
-    }
-    
-    if(count === gameTable.length) {
-        showResult()
-    }
+    return squareCount === diskCount;
 }
 
 /* FIM DAS FUNÇÕES */
