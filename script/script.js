@@ -207,7 +207,7 @@ function showResult() {
 //------------------------------
 
 
-    function generatorTableID(){
+    const generatorTableID = () => {
       const mult = colNumber * rowNumber
       for(let i = 1; i <= mult; i += rowNumber){
           let arr = [];
@@ -219,6 +219,7 @@ function showResult() {
           tableID.push(arr)
       }
     }
+    generatorTableID()
     
     
 
@@ -270,16 +271,6 @@ function showResult() {
           }
         }
     }
-
-
-
-    const possibilitiesGenerator = () => {
-      horizontalGenerator()
-      verticalGenerator()
-      diagonalDownGenerator()
-      diagonalUpGenerator()
-    }
-    possibilitiesGenerator()
     
 
 
@@ -299,6 +290,16 @@ function showResult() {
     return false
 
     }
+
+
+
+    const possibilitiesGenerator = () => {
+      horizontalGenerator()
+      verticalGenerator()
+      diagonalDownGenerator()
+      diagonalUpGenerator()
+    }
+    possibilitiesGenerator()
 
 
 
