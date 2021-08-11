@@ -47,13 +47,15 @@ function tableGenerator() {
 }
 
 
-function checkViability(col) {
+function checkViability() {
 
-    if (col.includes(0)) {
-        return true
-    } else {
-        return false
-    }
+  let squareArray = currentColumn.querySelectorAll(".disk")
+
+  if (squareArray.length < 6) {
+    return true
+  } else {
+    return false
+  }
     
 }
 
