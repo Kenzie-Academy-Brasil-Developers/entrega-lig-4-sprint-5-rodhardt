@@ -1,4 +1,18 @@
-
+const tableID = [
+  [1,2,3,4,5,6],
+  [7,8,9,10,11,12],
+  [13,14,15,16,17,18],
+  [19,20,21,22,23,24],
+  [25,26,27,28,29,30],
+  [31,32,33,34,35,36],
+  [37,38,39,40,41,42]
+  ]
+let colNumber = tableID.length
+let rowNumber = tableID[0].length
+let combinationCircle = 4
+let maxColCombination = colNumber - combinationCircle + 1
+let maxRowCombination = rowNumber - combinationCircle + 1
+let possibilities = []
 /* COMEÇO DECLARAÇÃO VARIÁVEIS */
 
 
@@ -65,16 +79,25 @@ function createCircle() {
     
 }
 
-
-function checkWin() {
-
-
-    checkHorizontal(i, j)
-    checkVertical(i, j)
-    checkDiagonal(i, j)
-    checkDiagonalReverse(i, j)
-
+const checkWin = (value) => {
+      
+  for( let i = 0; i < possibilities.length; i++){
+      if (win(value, possibilities[i]) === true){
+          console.log("Winer")
+          return true
+      }
+  }
+  return false
 }
+// function checkWin() {
+
+
+//     checkHorizontal(i, j)
+//     checkVertical(i, j)
+//     checkDiagonal(i, j)
+//     checkDiagonalReverse(i, j)
+
+// }
 
 
 function checkDraw() {
@@ -186,77 +209,92 @@ function showResult() {
 // -----------------------------
 //-   COMBINAÇÕES POR ÍNDICE
 //------------------------------
-const tableID = [
-  [1,2,3,4,5,6],
-  [7,8,9,10,11,12],
-  [13,14,15,16,17,18],
-  [19,20,21,22,23,24],
-  [25,26,27,28,29,30],
-  [31,32,33,34,35,36],
-  [37,38,39,40,41,42],
-  ]
-  
-let win = 4
-let colNumber = tableID.length
-let rowNumber = tableID[0].length
-let maxRowCombination = rowNumber - win + 1
-let maxColCombination = colNumber - win + 1
 
 
-let possibleResults = []
+    
+    
 
-
-
-
-    function horizontalGenerator() {
+    const horizontalGenerator = () => {
       for (let i = 0; i < colNumber; i++) {
         for (let r = 0; r < maxRowCombination; r++) {
-          let arrayCombination = []
-          for (let j = 0; j < win; j++) {
-            arrayCombination.push(tableID[i][j + r])
+          let combination = []
+          for (let j = 0; j < combinationCircle; j++) {
+            combination.push(tableID[i][j + r])
           }
-          possibleResults.push(arrayCombination)
+          possibilities.push(combination)
         }
       }
     }
-    function diagonalDownGenerator() {
-      for (let i = 0; i < maxColCombination; i++) {
+
+    
+    const diagonalDownGenerator = () => {
+      for (let i = 0; i < 4; i++) {
           for (let r = 0; r < 3; r++) {
-            let arrayCombination = []
-            for (let j = 0; j < win; j++) {
-              arrayCombination.push(tableID[i + j][j + r])
+            let combination = []
+            for (let j = 0; j < combinationCircle; j++) {
+              combination.push(tableID[i + j][j + r])
             }
-            possibleResults.push(arrayCombination)
+            possibilities.push(combination)
           }
         }
     }
-    function verticalGenerator() {
+
+    const verticalGenerator = () => {
       for (let i = 0; i < rowNumber; i++) {
         for (let r = 0; r < maxColCombination; r++) {
-          let arrayCombination = []
-          for (let j = 0; j < win; j++) {
-            arrayCombination.push(tableID[j + r][i])
+          let combination = []
+          for (let j = 0; j < combinationCircle; j++) {
+            combination.push(tableID[j + r][i])
           }
-          possibleResults.push(arrayCombination)
+          possibilities.push(combination)
         }
       }
     }
-    function diagonalUpGenerator() {
-      for (let i = maxRowCombination; i < colNumber; i++) {
-          for (let r = 0; r < maxRowCombination; r++) {
-            let arrayCombination = []
-            for (let j = 0; j < win; j++) {
-              arrayCombination.push(tableID[i - j][j + r])
+
+    const diagonalUpGenerator = () => {
+      for (let i = 3; i < 7; i++) {
+          for (let r = 0; r < 3; r++) {
+            let combination = []
+            for (let j = 0; j < combinationCircle; j++) {
+              combination.push(tableID[i - j][j + r])
             }
-            possibleResults.push(arrayCombination)
+            possibilities.push(combination)
           }
         }
     }
-    function possibilitiesGenerator() {
+
+
+
+    const possibilitiesGenerator = () => {
       horizontalGenerator()
-      diagonalDownGenerator()
       verticalGenerator()
+      diagonalDownGenerator()
       diagonalUpGenerator()
     }
     possibilitiesGenerator()
+    
+
+
+   const win = (player, condicao) => {
+    let count = 0
+    for (let i = 0; i < player.length; i++){
+        for ( let j = 0; j < condicao.length; j++ ){
+            if(player[i] === condicao[j]){
+               count++
+            }
+        }
+    }
+
+    if(count === combinationCircle){
+    return true
+    }
+    return false
+
+    }
+
+
+
+    
+
+    
     
