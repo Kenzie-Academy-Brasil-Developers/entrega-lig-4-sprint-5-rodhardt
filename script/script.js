@@ -7,6 +7,9 @@ let maxRowCombination = rowNumber - combinationCircle + 1
 let maxDiagonalDownCombination = ""//?
 let maxDiagonalUpCombination = ""// ?
 let possibilities = []
+let playerOneChoices = []
+let playerTwoChoices = []
+
 
 
 /* COMEÇO DECLARAÇÃO VARIÁVEIS */
@@ -75,13 +78,17 @@ function createCircle() {
     
 }
 
-const checkWin = (value) => {
+const checkWin = () => {
       
   for( let i = 0; i < possibilities.length; i++){
-      if (win(value, possibilities[i]) === true){
-          console.log("Winer")
+      if (win(playerOneChoices, possibilities[i]) === true){
+          console.log("Winner")
           return true
       }
+      if (win(playerTwoChoices, possibilities[i]) === true){
+        console.log("Winner")
+        return true
+    }
   }
   return false
 }
