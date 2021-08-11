@@ -1,90 +1,62 @@
-
 /* COMEÇO DECLARAÇÃO VARIÁVEIS */
 
-let playerOneChoices = []
-let playerTwoChoices = []
+let playerOneChoices = [];
+let playerTwoChoices = [];
 
-let currentColumn
-
-let currentPlayer = "player1"
+let currentColumn;
+let mainGame = document.querySelector(".main-game");
+let currentPlayer = "player1";
 
 /* FIM DECLARAÇÃO VARIÁVEIS */
 
-
-
-
 /* COMEÇO DAS FUNÇÕES */
 
-
-
-tableGenerator()
-
-
+tableGenerator();
 
 function game(event) {
-
-  currentColumn
+  currentColumn;
 
   if (checkViability()) {
-    createDisk()
-    switchPlayer()
+    createDisk();
+    switchPlayer();
   }
-    
+
   if (checkWin()) {
-    showResult("win")
-  }    
+    showResult("win");
+  }
 
   if (checkDraw()) {
-    showResult("draw")
+    showResult("draw");
   }
-  
 }
-
 
 function tableGenerator() {
-
-
+  for (let i = 0; i < 7; i++) {
+    let column = document.createElement("div");
+    column.classList.add("column");
+    column.id = `column_${i}`;
+    mainGame.appendChild(column);
+    for (let j = 0; j < 6; j++) {
+      let square = document.createElement("div");
+      square.classList.add("square");
+      square.dataset.square_id = j + i * 6 + 1;
+      column.appendChild(square);
+    }
+  }
 }
 
+function checkViability() {}
 
-function checkViability() {
+function switchPlayer() {}
 
-    
-}
+function createDisk() {}
 
+function checkWin() {}
 
-function switchPlayer() {
+function checkDraw() {}
 
-    
-}
+function showResult() {}
 
-
-function createDisk() {
-
-
-}
-
-
-function checkWin() {
-
-
-}
-
-
-function checkDraw() {
-
-
-}
-
-
-function showResult() {
-
-    
-}
-
-
-function resetGame() {
-
-}
+function resetGame() {}
 
 /* FIM DAS FUNÇÕES */

@@ -1,23 +1,45 @@
-
-
-
 .container {
-    display: flex;
-
-
+  display: flex;
 }
 
 .col {
-    width: calc(100%/7);
-    height: calc(100%/7);
-    background-color: blue;
-    display: flex;
-    flex-direction: column;
+  width: calc(100% / 7);
+  height: calc(100% / 7);
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
 }
 
 .square {
-    width: 100%;
-    height: 60px;
-    background-color: red;
-    border: 1px solid black;
+  width: 100%;
+  height: 60px;
+  background-color: red;
+  border: 1px solid black;
+}
+
+.main-game {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(
+    to bottom,
+    #db8989 0%,
+    #f2a29a 0%,
+    #ff8c7f 21%,
+    #f9998e 52%,
+    #dd4b4b 78%,
+    #d22f2f 100%
+  );
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin: 2px;
+  background-color: white;
 }
