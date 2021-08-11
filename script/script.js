@@ -152,12 +152,6 @@ again.addEventListener("click", () =>  window.location.reload());
 
 
 
-
-
-
-
-function checkDraw() {}
-
 function resetGame() {}
 
 
@@ -169,13 +163,14 @@ const generatorTableID = () => {
     let arr = [];
     let count = 0
     for(let j = 0; j < rowNumber; j++){
-        arr.push(i + count)
-        count++
+      arr.push(i + count)
+      count++
     }
     tableID.push(arr)
   }
 }
 generatorTableID()
+
 
 
 
@@ -191,6 +186,13 @@ const horizontalGenerator = () => {
   }
 }
 
+const checkDraw = () => {
+
+  let squareCount = document.querySelectorAll(".square");
+  let diskCount = document.querySelectorAll(".disk");
+
+  return squareCount.length === diskCount.length;
+}
 
 const diagonalDownGenerator = () => {
   for (let i = 0; i < 4; i++) {
