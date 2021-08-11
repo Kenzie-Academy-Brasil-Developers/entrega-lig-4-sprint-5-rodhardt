@@ -33,3 +33,12 @@
   background-size: 71px 49px;
   background-position-x: center;
 }
+
+.disk {
+  height: 50px;
+  width: 50px;
+  clip-path: circle();
+  background-image: url(bola.png);
+  background-size: 71px 49px;
+  background-position-x: center;
+}
