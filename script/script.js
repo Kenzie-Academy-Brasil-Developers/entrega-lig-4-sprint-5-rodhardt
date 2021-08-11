@@ -1,8 +1,6 @@
 
 /* COMEÇO DECLARAÇÃO VARIÁVEIS */
-const result = document.getElementById("resultModal");
-const text = document.getElementById("textResult");
-const again = document.getElementById("again")
+
 
 
 const gameTable = [
@@ -15,6 +13,9 @@ const gameTable = [
 [0,0,0,0,0,0]
 ]
 
+const result = document.getElementById("resultModal");
+const text = document.getElementById("textResult");
+const again = document.getElementById("again")
 
 
 
@@ -79,22 +80,23 @@ function checkWin() {
 }
 
 
-function checkDraw() {
+function checkDraw() { 
 
 }
 
-function showResult(results) {
+const showResult = (results) => {
 
     if(results === "win") {
 
-        text.innerHTML = `${currentPlayer}!!! O mizeravi é um genio `
+        text.innerHTML = `${currentPlayer}!!! O mizeravi é um gênio `
     }  
-    
+
     else {
       
         text.innerHTML = `Poxa :( infelizmente dessa vez você não conseguir nos ajudar. Tente novamente`
     }
-    result.classList.add("result");
+    
+    result.classList.remove("hidden");
 }
 
 again.addEventListener("click", () =>  window.location.reload());
