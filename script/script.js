@@ -31,6 +31,7 @@ function game(event) {
 }
 
 function tableGenerator() {
+
   for (let i = 0; i < 7; i++) {
     let column = document.createElement("div");
     column.classList.add("column");
@@ -44,6 +45,21 @@ function tableGenerator() {
     }
   }
 }
+
+
+function checkViability() {
+
+  let squareArray = currentColumn.querySelectorAll(".disk")
+
+  if (squareArray.length < 6) {
+    return true
+  } else {
+    return false
+  }
+    
+}
+
+
 
 function checkViability() {}
 
