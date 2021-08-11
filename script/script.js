@@ -39,11 +39,9 @@ function checkViability() {}
 
 function switchPlayer() {
   if (currentPlayer === "player1") {
-    player.classList.add(".player1");
     currentPlayer = "player2";
   } else {
     currentPlayer = "player1";
-    player.classList.add(".player2");
   }
 }
 
@@ -55,9 +53,17 @@ function createDisk(event) {
   let currentDisks = currentColumn.querySelectorAll(".disk");
   let diskCount = currentDisks.length;
   let destinySquare = currentColumn.querySelector(
-    ".square:nth-child(`${currentColumn - diskCount}`)"
+    `.square:nth-child(${currentColumn - diskCount})`
   );
-  destinySquare.appendChild(player);
+  if (currentPlayer === "player1") {
+    player.classList.add(".player1");
+    destinySquare.appendChild(player);
+    playerOneChoices.push(destinySquare.dataset.rowId);
+  } else {
+    player.classList.add(".player2");
+    destinySquare.appendChild(player);
+    playerTwoChoices.push(destinySquare.dataset.rowId);
+  }
 }
 
 function checkWin() {}
