@@ -55,6 +55,7 @@ function game(event) {
 
 }
 
+
 function tableGenerator() {
 
   for (let i = 0; i < 7; i++) {
@@ -77,8 +78,6 @@ function tableGenerator() {
 }
 
 
-
-
 function checkViability() {
 
   let squareArray = currentColumn.querySelectorAll(".disk")
@@ -92,7 +91,6 @@ function checkViability() {
 }
 
 
-
 function switchPlayer() {
   if (currentPlayer === "player1") {
     currentPlayer = "player2";
@@ -100,6 +98,7 @@ function switchPlayer() {
     currentPlayer = "player1";
   }
 }
+
 
 function createDisk() {
   let disk = document.createElement("div");
@@ -120,6 +119,7 @@ function createDisk() {
     playerTwoChoices.push(Number(destinySquare.dataset.square_id));
   }
 }
+
 
 const checkWin = () => {
       
@@ -148,13 +148,17 @@ const showResult = (results) => {
   result.classList.remove("hidden");
 }
 
-again.addEventListener("click", () =>  window.location.reload());
+again.addEventListener("click", resetGame);
 
 
-
-function resetGame() {}
-
-
+function resetGame() {
+  mainGame.innerText = ""
+  tableGenerator()
+  currentPlayer = "player1"
+  playerOneChoices = []
+  playerTwoChoices = []
+  result.classList.add("hidden")
+}
 
 
 const generatorTableID = () => {
@@ -170,8 +174,6 @@ const generatorTableID = () => {
   }
 }
 generatorTableID()
-
-
 
 
 const horizontalGenerator = () => {
@@ -246,11 +248,13 @@ const win = (player, condicao) => {
   return false
 }
 
+
 const possibilitiesGenerator = () => {
   horizontalGenerator()
   verticalGenerator()
   diagonalDownGenerator()
   diagonalUpGenerator()
+
 }
 possibilitiesGenerator()
 
