@@ -77,7 +77,7 @@ function checkWin() {
 }
 
 
-function checkDraw() {
+const checkDraw = () => {
 
     let squareCount = document.querySelectorAll(".square");
     let diskCount = document.querySelectorAll(".disk");
