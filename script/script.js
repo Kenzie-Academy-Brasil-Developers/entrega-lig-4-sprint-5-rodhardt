@@ -12,6 +12,8 @@ let rowNumber = tableID[0].length
 let combinationCircle = 4
 let maxColCombination = colNumber - combinationCircle + 1
 let maxRowCombination = rowNumber - combinationCircle + 1
+let maxDiagonalDownCombination = ""//?
+let maxDiagonalUpCombination = ""// ?
 let possibilities = []
 /* COMEÇO DECLARAÇÃO VARIÁVEIS */
 
