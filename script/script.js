@@ -1,6 +1,8 @@
 
 /* COMEÇO DECLARAÇÃO VARIÁVEIS */
-
+const result = document.getElementById("resultModal");
+const text = document.getElementById("textResult");
+const again = document.getElementById("again")
 
 
 const gameTable = [
@@ -83,22 +85,17 @@ function checkDraw() {
 
 function showResult(results) {
 
-    const result = document.getElementById("resultModal");
-    const text = document.getElementById("textResult");
+    if(results === "win") {
 
-    if(results === undefined) {
-
-        text.innerHTML = `Poxa :( infelizmente dessa vez você não conseguir nos ajudar. Tente novamente`
+        text.innerHTML = `${currentPlayer}!!! O mizeravi é um genio `
     }  
     
     else {
       
-        text.innerHTML = `Parabéns ${results} você nos ajudou com as esferas`
+        text.innerHTML = `Poxa :( infelizmente dessa vez você não conseguir nos ajudar. Tente novamente`
     }
     result.classList.add("result");
 }
-
-const again = document.getElementById("again")
 
 again.addEventListener("click", () =>  window.location.reload());
 
