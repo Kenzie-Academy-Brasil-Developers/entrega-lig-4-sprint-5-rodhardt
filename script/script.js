@@ -1,4 +1,3 @@
-
 /* COMEÇO DECLARAÇÃO VARIÁVEIS */
 
 const tableID = []
@@ -23,7 +22,8 @@ let mainGame = document.querySelector(".main-game");
 
 const result = document.getElementById("resultModal");
 const text = document.getElementById("textResult");
-const again = document.getElementById("again")
+const reset = document.getElementById("reset")
+const start = document.getElementById("start")
 
 let columns
 
@@ -53,7 +53,7 @@ function game(event) {
 
   diskCreated = false
   
-  if (checkViability("start")) {
+  if (checkViability()) {
     createDisk();
     diskCreated = true
   }
@@ -67,15 +67,13 @@ function game(event) {
     showResult("draw");
   }
 
-  if(checkViability("end") & diskCreated) {
+  if(diskCreated) {
     switchPlayer();
   }
 
 }
 
-
 function tableGenerator() {
-
   for (let i = 0; i < 7; i++) {
     let column = document.createElement("div");
     column.classList.add("column");
@@ -95,26 +93,6 @@ function tableGenerator() {
   });
 }
 
-
-function checkViability(moment) {
-
-  let squareArray = currentColumn.querySelectorAll(".disk")
-
-  if (moment === "start" && squareArray.length < 6) {
-    return true
-  } else if (moment === "start" && squareArray.length >= 6) {
-    return false
-  }
-
-  if (moment === "end" && squareArray.length <= 6) {
-    return true
-  } else if (moment === "end" && squareArray.length > 6) {
-    return false
-  }
-  
-}
-
-
 function switchPlayer() {
   if (currentPlayer === "player1") {
     currentPlayer = "player2";
@@ -123,16 +101,16 @@ function switchPlayer() {
   }
 }
 
-
-function createDisk() {
+function createDisk(event) {
   let disk = document.createElement("div");
   disk.classList.add("disk");
   let currentDisks = currentColumn.querySelectorAll(".disk");
   let diskCount = currentDisks.length;
-  let currentSquares = currentColumn.querySelectorAll(".square")
-  let squareCount = currentSquares.length
+  let curretSquares = currentColumn.querySelectorAll(".square");
+  let squareCount = curretSquares.length;
   let destinySquare = currentColumn.querySelector(
-    `.square:nth-child(${squareCount - diskCount})`);
+    `.square:nth-child(${squareCount - diskCount})`
+  );
   if (currentPlayer === "player1") {
     disk.classList.add("player1");
     destinySquare.appendChild(disk);
@@ -144,6 +122,17 @@ function createDisk() {
   }
 }
 
+function checkViability() {
+
+  let squareArray = currentColumn.querySelectorAll(".disk")
+
+  if (squareArray.length < 6) {
+    return true
+  } else {
+    return false
+  }
+  
+}
 
 const checkWin = () => { 
   for( let i = 0; i < possibilities.length; i++){
@@ -175,8 +164,8 @@ const showResult = (results) => {
   result.classList.remove("hidden");
 }
 
-again.addEventListener("click", resetGame);
-
+reset.addEventListener("click", resetGame);
+start.addEventListener("click", resetGame);
 
 function resetGame() {
   mainGame.innerText = ""
@@ -288,4 +277,3 @@ possibilitiesGenerator()
 
 
 /* FIM DAS FUNÇÕES */
-
