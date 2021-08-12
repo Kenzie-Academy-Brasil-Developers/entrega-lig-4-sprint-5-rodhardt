@@ -1,59 +1,16 @@
-/* COMEÇO DECLARAÇÃO VARIÁVEIS */
+//* COMEÇO DECLARAÇÃO VARIÁVEIS */
 
-const tableID = [];
-let colNumber = 7;
-let rowNumber = 6;
-let combinationCircle = 4;
-let maxColCombination = colNumber - combinationCircle + 1;
-let maxRowCombination = rowNumber - combinationCircle + 1;
-let maxDiagonalDownCombination = ""; //?
-let maxDiagonalUpCombination = ""; // ?
-let possibilities = [];
 let playerOneChoices = [];
 let playerTwoChoices = [];
 
 let currentColumn;
-
-let currentPlayer = "player1";
-
-let mainGame = document.querySelector(".main-game");
-
-const result = document.getElementById("resultModal");
-const text = document.getElementById("textResult");
-const again = document.getElementById("again");
-
 let columns;
-
-let diskCreated = false;
+let currentPlayer = "player1";
+let mainGame = document.querySelector(".main-game");
 
 /* FIM DECLARAÇÃO VARIÁVEIS */
 
 /* COMEÇO DAS FUNÇÕES */
-
-tableGenerator();
-
-function game(event) {
-  currentColumn = event.currentTarget;
-
-  diskCreated = false;
-
-  if (checkViability()) {
-    createDisk();
-    diskCreated = true;
-  }
-
-  if (checkWin()) {
-    showResult("win");
-  }
-
-  if (checkDraw() & (checkWin() === false)) {
-    showResult("draw");
-  }
-
-  if (diskCreated) {
-    switchPlayer();
-  }
-}
 
 let mainGame = document.querySelector(".main-game");
 
@@ -102,3 +59,21 @@ function pickColumn(event) {
   console.log(selectColumn.lastChild);
   selectColumn.lastChild.style.backgroundColor = "red";
 }
+
+function tableGenerator() {}
+
+function checkViability() {}
+
+function switchPlayer() {}
+
+function createDisk() {}
+
+function checkWin() {}
+
+function checkDraw() {}
+
+function showResult() {}
+
+function resetGame() {}
+
+/* FIM DAS FUNÇÕES */
