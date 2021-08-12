@@ -195,9 +195,9 @@ main {}
 }
 
 @keyframes mymove {
-0%   {box-shadow: 0px 0px 32px 0px #ffeb33;}
-50%  {box-shadow: 0px 0px 32px 15px #ffeb33;}
-100% {box-shadow: 0px 0px 32px 30px #ffeb33;}
+0%   {box-shadow: 0px 0px 32px 5px #fff9c8;}
+50%  {box-shadow: 0px 0px 32px 15px #fff9c8;}
+100% {box-shadow: 0px 0px 32px 20px #fff9c8;}
 }
 
 
