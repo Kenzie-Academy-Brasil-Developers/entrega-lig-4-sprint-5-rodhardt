@@ -82,7 +82,7 @@ const checkDraw = () => {
     let squareCount = document.querySelectorAll(".square");
     let diskCount = document.querySelectorAll(".disk");
 
-    return squareCount === diskCount;
+    return squareCount.length === diskCount.length;
 }
 
 /* FIM DAS FUNÇÕES */
