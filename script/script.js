@@ -20,7 +20,8 @@ let mainGame = document.querySelector(".main-game");
 
 const result = document.getElementById("resultModal");
 const text = document.getElementById("textResult");
-const again = document.getElementById("again")
+const reset = document.getElementById("reset")
+const start = document.getElementById("start")
 
 let columns
 
@@ -78,7 +79,7 @@ function tableGenerator() {
   });
 }
 
-function swichPlayer() {
+function switchPlayer() {
   if (currentPlayer === "player1") {
     currentPlayer = "player2";
   } else {
@@ -146,8 +147,8 @@ const showResult = (results) => {
   result.classList.remove("hidden");
 }
 
-again.addEventListener("click", resetGame);
-
+reset.addEventListener("click", resetGame);
+start.addEventListener("click", resetGame);
 
 function resetGame() {
   mainGame.innerText = ""
