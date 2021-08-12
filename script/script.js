@@ -11,53 +11,72 @@ let mainGame = document.querySelector(".main-game");
 /* FIM DECLARAÇÃO VARIÁVEIS */
 
 /* COMEÇO DAS FUNÇÕES */
+tableGenerator();
 
-let mainGame = document.querySelector(".main-game");
+function game(event) {
+  currentColumn = event.currentTarget;
 
-for (let i = 0; i < 7; i++) {
-  let column = document.createElement("div");
-  column.classList.add("column");
-  column.id = `column_${i}`;
-  mainGame.appendChild(column);
-  for (let j = 0; j < 6; j++) {
-    let square = document.createElement("div");
-    square.classList.add("square");
-    square.id = j + i * 7;
-    column.appendChild(square);
+  if (checkViability()) {
+    createDisk();
+    switchPlayer();
+  }
+
+  if (checkWin()) {
+    showResult("win");
+  }
+
+  if (checkDraw()) {
+    showResult("draw");
   }
 }
-function createDisk() {
-  let disk = document.createElement("div");
-  disk.classList.add("disk");
-  mainGame.appendChild(disk);
-}
-createDisk();
-let player = document.querySelector(".disk");
 
-let currentPlayer = "player1";
+function tableGenerator() {
+  for (let i = 0; i < 7; i++) {
+    let column = document.createElement("div");
+    column.classList.add("column");
+    column.id = `column_${i}`;
+    mainGame.appendChild(column);
+    for (let j = 0; j < 6; j++) {
+      let square = document.createElement("div");
+      square.classList.add("square");
+      square.dataset.square_id = j + i * 6 + 1;
+      column.appendChild(square);
+    }
+  }
+
+  columns = document.querySelectorAll(".column");
+  columns.forEach((element) => {
+    element.addEventListener("click", game);
+  });
+}
+
 function swichPlayer() {
   if (currentPlayer === "player1") {
-    player.classList.add(".player1");
     currentPlayer = "player2";
   } else {
     currentPlayer = "player1";
-    player.classList.add(".player2");
   }
 }
 
-let columns = document.querySelectorAll(".column");
-
-columns.forEach((element) => {
-  element.addEventListener("click", pickColumn);
-});
-
-function pickColumn(event) {
-  let selectColumn = event.currentTarget;
-
-  let id = document.getElementById("column_2");
-  for (let i = id[length - 1]; i >= 0; i--) {}
-  console.log(selectColumn.lastChild);
-  selectColumn.lastChild.style.backgroundColor = "red";
+function createDisk(event) {
+  let disk = document.createElement("div");
+  disk.classList.add("disk");
+  let currentDisks = currentColumn.querySelectorAll(".disk");
+  let diskCount = currentDisks.length;
+  let curretSquares = currentColumn.querySelectorAll(".square");
+  let squareCount = curretSquares.length;
+  let destinySquare = currentColumn.querySelector(
+    `.square:nth-child(${squareCount - diskCount})`
+  );
+  if (currentPlayer === "player1") {
+    disk.classList.add("player1");
+    destinySquare.appendChild(disk);
+    playerOneChoices.push(Number(destinySquare.dataset.square_id));
+  } else {
+    disk.classList.add("player2");
+    destinySquare.appendChild(disk);
+    playerTwoChoices.push(Number(destinySquare.dataset.square_id));
+  }
 }
 
 function tableGenerator() {}
