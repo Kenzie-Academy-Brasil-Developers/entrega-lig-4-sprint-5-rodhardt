@@ -45,7 +45,7 @@ function game(event) {
     showResult("win");
   }
 
-  if (checkDraw()) {
+  if (checkDraw() & checkWin() === false) {
     showResult("draw");
   }
 
@@ -82,7 +82,7 @@ function checkViability() {
 
   let squareArray = currentColumn.querySelectorAll(".disk")
 
-  if (squareArray.length < 6) {
+  if (squareArray.length <= 6) {
     return true
   } else {
     return false
