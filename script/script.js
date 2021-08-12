@@ -99,6 +99,6 @@ const showResult = (results) => {
     result.classList.remove("hidden");
 }
 
-again.addEventListener("click", () =>  window.location.reload());
+again.addEventListener("click", resetGame);
 
 /* FIM DAS FUNÇÕES */
