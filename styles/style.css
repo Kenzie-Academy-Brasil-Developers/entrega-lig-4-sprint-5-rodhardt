@@ -245,5 +245,6 @@ main {
     left: 64%;
     bottom: 36%;
     animation: dragon 3s infinite;
+    z-index: -1;
   }
 }
