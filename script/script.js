@@ -23,9 +23,9 @@ const result = document.getElementById("resultModal");
 const text = document.getElementById("textResult");
 const again = document.getElementById("again")
 
-
 let columns
 
+let diskCreated = false
 
 /* FIM DECLARAÇÃO VARIÁVEIS */
 
@@ -37,9 +37,13 @@ function game(event) {
 
   currentColumn = event.currentTarget
 
-  if (checkViability()) {
+  diskCreated = false
+  
+  if (checkViability("start")) {
     createDisk();
+    diskCreated = true
   }
+  
 
   if (checkWin()) {
     showResult("win");
@@ -49,7 +53,7 @@ function game(event) {
     showResult("draw");
   }
 
-  if(checkViability()) {
+  if(checkViability("end") & diskCreated) {
     switchPlayer();
   }
 
@@ -78,16 +82,22 @@ function tableGenerator() {
 }
 
 
-function checkViability() {
+function checkViability(moment) {
 
   let squareArray = currentColumn.querySelectorAll(".disk")
 
-  if (squareArray.length <= 6) {
+  if (moment === "start" && squareArray.length < 6) {
     return true
-  } else {
+  } else if (moment === "start" && squareArray.length >= 6) {
     return false
   }
-    
+
+  if (moment === "end" && squareArray.length <= 6) {
+    return true
+  } else if (moment === "end" && squareArray.length > 6) {
+    return false
+  }
+  
 }
 
 
