@@ -12,20 +12,6 @@ let playerTwoChoices = []
 
 
 
-/* COMEÇO DECLARAÇÃO VARIÁVEIS */
-
-
-let currentColumn
-
-let currentPlayer = "player1"
-
-/* FIM DECLARAÇÃO VARIÁVEIS */
-
-
-
-
-/* COMEÇO DAS FUNÇÕES */
-
 
 
 tableGenerator()
@@ -79,11 +65,9 @@ const checkWin = () => {
       
   for( let i = 0; i < possibilities.length; i++){
       if (win(playerOneChoices, possibilities[i]) === true){
-          console.log("Winner")
           return true
       }
       if (win(playerTwoChoices, possibilities[i]) === true){
-        console.log("Winner")
         return true
     }
   }
