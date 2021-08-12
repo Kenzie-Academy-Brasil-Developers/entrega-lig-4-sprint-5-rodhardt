@@ -45,11 +45,15 @@
 }
 
 .player1 {
-  background-color: purple;
+  background: url(../assets/img/playerOneBall.png);
+  background-size: cover;
+
 }
 .player2 {
-  background-color: yellow;
+  background: url(../assets/img/playerTwoBall.png);
+  background-size: cover;
 }
+
 
 
 
