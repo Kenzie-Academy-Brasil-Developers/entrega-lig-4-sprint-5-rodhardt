@@ -4,6 +4,7 @@ body {
   height: 100vh;
   background-repeat: no-repeat;
   background-position: center;
+  min-width: 350px;
 }
 
 header {
@@ -18,7 +19,6 @@ header {
 
 main {
   position: relative;
-  min-width: ;
 }
 
 .box {
@@ -26,6 +26,7 @@ main {
   justify-content: center;
   align-items: center;
   align-content: center;
+  min-width: 350px;
 }
 
 .main-game {
@@ -112,6 +113,7 @@ main {
   background-color: #07079ceb;
   border-radius: 15px;
   border: 4px double aliceblue;
+  min-width: 350px;
 }
 
 .dialogue > h1 {

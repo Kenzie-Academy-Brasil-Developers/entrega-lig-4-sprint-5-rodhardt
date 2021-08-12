@@ -22,6 +22,7 @@ const result = document.getElementById("resultModal");
 const text = document.getElementById("textResult");
 const reset = document.getElementById("reset")
 const start = document.getElementById("start")
+const dialog =document.getElementById("dialog");
 
 let columns
 
@@ -148,7 +149,11 @@ const showResult = (results) => {
 }
 
 reset.addEventListener("click", resetGame);
-start.addEventListener("click", resetGame);
+start.addEventListener("click", () => {
+  resetGame 
+
+  dialog.classList.add("hidden");
+});
 
 function resetGame() {
   mainGame.innerText = ""
