@@ -39,7 +39,7 @@ function game(event) {
 
   diskCreated = false
   
-  if (checkViability("start")) {
+  if (checkViability()) {
     createDisk();
     diskCreated = true
   }
@@ -53,7 +53,7 @@ function game(event) {
     showResult("draw");
   }
 
-  if(checkViability("end") & diskCreated) {
+  if(diskCreated) {
     switchPlayer();
   }
 
@@ -82,19 +82,13 @@ function tableGenerator() {
 }
 
 
-function checkViability(moment) {
+function checkViability() {
 
   let squareArray = currentColumn.querySelectorAll(".disk")
 
-  if (moment === "start" && squareArray.length < 6) {
+  if (squareArray.length < 6) {
     return true
-  } else if (moment === "start" && squareArray.length >= 6) {
-    return false
-  }
-
-  if (moment === "end" && squareArray.length <= 6) {
-    return true
-  } else if (moment === "end" && squareArray.length > 6) {
+  } else {
     return false
   }
   
