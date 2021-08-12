@@ -1,33 +1,61 @@
-//* COMEÇO DECLARAÇÃO VARIÁVEIS */
+/* COMEÇO DECLARAÇÃO VARIÁVEIS */
 
-let playerOneChoices = [];
-let playerTwoChoices = [];
+const tableID = []
+let colNumber = 7
+let rowNumber = 6
+let combinationCircle = 4
+let maxColCombination = colNumber - combinationCircle + 1
+let maxRowCombination = rowNumber - combinationCircle + 1
+let maxDiagonalDownCombination = ""//?
+let maxDiagonalUpCombination = ""// ?
+let possibilities = []
+let playerOneChoices = []
+let playerTwoChoices = []
 
-let currentColumn;
-let columns;
-let currentPlayer = "player1";
+let currentColumn
+
+let currentPlayer = "player1"
+
 let mainGame = document.querySelector(".main-game");
+
+const result = document.getElementById("resultModal");
+const text = document.getElementById("textResult");
+const again = document.getElementById("again")
+
+let columns
+
+let diskCreated = false
 
 /* FIM DECLARAÇÃO VARIÁVEIS */
 
 /* COMEÇO DAS FUNÇÕES */
+
 tableGenerator();
 
 function game(event) {
-  currentColumn = event.currentTarget;
 
+  currentColumn = event.currentTarget
+
+  diskCreated = false
+  
   if (checkViability()) {
     createDisk();
-    switchPlayer();
+    diskCreated = true
   }
+  
 
   if (checkWin()) {
     showResult("win");
   }
 
-  if (checkDraw()) {
+  if (checkDraw() & checkWin() === false) {
     showResult("draw");
   }
+
+  if(diskCreated) {
+    switchPlayer();
+  }
+
 }
 
 function tableGenerator() {
@@ -79,20 +107,155 @@ function createDisk(event) {
   }
 }
 
-function tableGenerator() {}
+function checkViability() {
 
-function checkViability() {}
+  let squareArray = currentColumn.querySelectorAll(".disk")
 
-function switchPlayer() {}
+  if (squareArray.length < 6) {
+    return true
+  } else {
+    return false
+  }
+  
+}
 
-function createDisk() {}
+const checkWin = () => {
+      
+  for( let i = 0; i < possibilities.length; i++){
+    if (win(playerOneChoices, possibilities[i]) === true){
+        return true
+    }
+    if (win(playerTwoChoices, possibilities[i]) === true){
+      return true
+    }
+  }
+  return false
+}
 
-function checkWin() {}
 
-function checkDraw() {}
+const showResult = (results) => {
 
-function showResult() {}
+  if(results === "win") {
+    text.innerHTML = `${currentPlayer}!!! O mizeravi é um gênio `
+  }  
 
-function resetGame() {}
+  else {
+    text.innerHTML = `Poxa :( infelizmente dessa vez você não conseguir nos ajudar. Tente novamente`
+  }
+
+  result.classList.remove("hidden");
+}
+
+again.addEventListener("click", resetGame);
+
+
+function resetGame() {
+  mainGame.innerText = ""
+  tableGenerator()
+  currentPlayer = "player1"
+  playerOneChoices = []
+  playerTwoChoices = []
+  result.classList.add("hidden")
+}
+
+
+const generatorTableID = () => {
+  const mult = colNumber * rowNumber
+  for(let i = 1; i <= mult; i += rowNumber){
+    let arr = [];
+    let count = 0
+    for(let j = 0; j < rowNumber; j++){
+      arr.push(i + count)
+      count++
+    }
+    tableID.push(arr)
+  }
+}
+generatorTableID()
+
+
+const horizontalGenerator = () => {
+  for (let i = 0; i < colNumber; i++) {
+    for (let r = 0; r < maxRowCombination; r++) {
+      let combination = []
+      for (let j = 0; j < combinationCircle; j++) {
+        combination.push(tableID[i][j + r])
+      }
+      possibilities.push(combination)
+    }
+  }
+}
+
+const checkDraw = () => {
+
+  let squareCount = document.querySelectorAll(".square");
+  let diskCount = document.querySelectorAll(".disk");
+
+  return squareCount.length === diskCount.length;
+}
+
+const diagonalDownGenerator = () => {
+  for (let i = 0; i < 4; i++) {
+    for (let r = 0; r < 3; r++) {
+      let combination = []
+      for (let j = 0; j < combinationCircle; j++) {
+        combination.push(tableID[i + j][j + r])
+      }
+      possibilities.push(combination)
+    }
+  }
+}
+
+const verticalGenerator = () => {
+  for (let i = 0; i < rowNumber; i++) {
+    for (let r = 0; r < maxColCombination; r++) {
+      let combination = []
+      for (let j = 0; j < combinationCircle; j++) {
+        combination.push(tableID[j + r][i])
+      }
+      possibilities.push(combination)
+    }
+  }
+}
+
+const diagonalUpGenerator = () => {
+  for (let i = 3; i < 7; i++) {
+    for (let r = 0; r < 3; r++) {
+      let combination = []
+      for (let j = 0; j < combinationCircle; j++) {
+        combination.push(tableID[i - j][j + r])
+      }
+      possibilities.push(combination)
+    }
+  }
+}
+
+
+const win = (player, condicao) => {
+  let count = 0
+  for (let i = 0; i < player.length; i++){
+    for ( let j = 0; j < condicao.length; j++ ){
+      if(player[i] === condicao[j]){
+        count++
+      }
+    }
+  }
+  if(count === combinationCircle){
+    return true
+  }
+  return false
+}
+
+
+const possibilitiesGenerator = () => {
+  horizontalGenerator()
+  verticalGenerator()
+  diagonalDownGenerator()
+  diagonalUpGenerator()
+
+}
+possibilitiesGenerator()
+
+
 
 /* FIM DAS FUNÇÕES */
