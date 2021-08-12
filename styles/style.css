@@ -67,7 +67,7 @@ main {}
 
 
 .player1 {
-  background: url(../assets/img/playerTwoBall.png);
+  background: url(../assets/img/playerOneBall.png);
   background-size: cover;
   height: 50px;
   width: 50px;
@@ -76,7 +76,7 @@ main {}
   background-position-x: center;
 }
 .player2 {
-  background: url(../assets/img/playerOneBall.png);
+  background: url(../assets/img/playerTwoBall.png);
   background-size: cover;
   height: 50px;
   width: 50px;
