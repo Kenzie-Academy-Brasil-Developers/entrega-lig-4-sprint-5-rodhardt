@@ -11,6 +11,8 @@ let maxDiagonalUpCombination = ""// ?
 let possibilities = []
 let playerOneChoices = []
 let playerTwoChoices = []
+let arrWin = []
+
 
 let currentColumn
 
@@ -27,8 +29,20 @@ const dialog =document.getElementById("dialog");
 let columns
 
 let diskCreated = false
-
+const lastColumn = mainGame.children
 /* FIM DECLARAÇÃO VARIÁVEIS */
+const light = () =>{
+
+  for(let i = 0; i < lastColumn.length; i++){
+    let children = lastColumn[i].children
+    for(let j = 0; j < children.length; j++){
+      if(arrWin.includes(Number(children[j].dataset.square_id))){
+        children[j].classList.add('winner')
+      }
+    }
+  }
+  
+}
 
 /* COMEÇO DAS FUNÇÕES */
 
@@ -121,14 +135,17 @@ function checkViability() {
   
 }
 
-const checkWin = () => {
-      
+const checkWin = () => { 
   for( let i = 0; i < possibilities.length; i++){
-    if (win(playerOneChoices, possibilities[i]) === true){
+    if (win(playerOneChoices, possibilities[i])){
+        arrWin = possibilities[i]
+        light()
         return true
     }
-    if (win(playerTwoChoices, possibilities[i]) === true){
-      return true
+    else if (win(playerTwoChoices, possibilities[i])){
+        arrWin = possibilities[i]
+        light()
+        return true   
     }
   }
   return false

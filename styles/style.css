@@ -19,6 +19,7 @@ header {
 
 main {
   position: relative;
+  min-width: 350px;
 }
 
 .box {
@@ -53,8 +54,11 @@ main {
   border: 1px solid black;
   border-radius: 50%;
   margin: 2px;
+  box-sizing: border-box;
+
   animation: loading 2s infinite;
   border-left-color: #fcff61;
+
 }
 
 @keyframes loading {
@@ -67,31 +71,34 @@ main {
 }
 
 .disk {
+  border-radius: 100%;
+  background-position-x: center;
   height: 40px;
   width: 40px;
   clip-path: circle();
-  background-size: 71px 49px;
-  background-position-x: center;
-  position: relative;
 }
+
 
 .player1 {
-  height: 40px;
-  width: 40px;
-  clip-path: circle();
-  background-color: red;
-  /* background-image: url(bola.png); */
 
+  background: url(../assets/img/playerOneBall.png);
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  clip-path: circle();
+  border-radius: 100%;
   background-position-x: center;
 }
+
 .player2 {
-  /* background-image: url(bola2.png); */
+  background: url(../assets/img/playerTwoBall.png);
+  background-size: cover;
   height: 40px;
   width: 40px;
   clip-path: circle();
   background-position-x: center;
-  background-color: blue;
 }
+
 
 @keyframes dragon {
   0% {
@@ -104,6 +111,7 @@ main {
     transform: translateY(0px);
   }
 }
+
 
 .dialogue {
   position: relative;
@@ -124,8 +132,15 @@ main {
   font-weight: 700;
 }
 
+.winner{
+  box-shadow: 0px 0px 32px 10px #ffeb33;
+  position: relative;
+  animation: mymove 1s infinite;
+}
+
 .border {
   animation: animated-cursor 600ms steps(30, end) infinite;
+
 }
 
 @keyframes animated-cursor {
@@ -185,6 +200,13 @@ main {
 .start-button:hover {
   background-color: rgb(27, 153, 27);
 }
+
+@keyframes mymove {
+0%   {box-shadow: 0px 0px 32px 5px #fff9c8;}
+50%  {box-shadow: 0px 0px 32px 15px #fff9c8;}
+100% {box-shadow: 0px 0px 32px 20px #fff9c8;}
+}
+
 
 .containerModal {
   width: 100%;
