@@ -87,8 +87,8 @@ main {
   clip-path: circle();
   position: relative;
   animation: ad 2s;
-
 }
+
 
 .player1 {
   background: url(../assets/img/playerOneBall.png);
@@ -296,16 +296,16 @@ main {
     width: 363px;
     height: 426px;
     float: right;
-    position: fixed;
+    position: absolute;
     left: 64%;
-    bottom: 36%;
+    bottom: 31%;
     animation: dragon 3s infinite;
     z-index: -1;
   }
 
   .dialogue {
     margin-top: 48vh;
-    height: 195px;
+    height: 215px;
     width: 80%;
   }
 

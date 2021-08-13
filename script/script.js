@@ -157,9 +157,10 @@ const showResult = (results) => {
 
 reset.addEventListener("click", resetGame);
 start.addEventListener("click", () => {
+  mainGame.classList.remove('hidden')
   resetGame();
 
-  dialog.classList.add("hidden");
+  // dialog.classList.add("hidden");
 });
 
 function resetGame() {
