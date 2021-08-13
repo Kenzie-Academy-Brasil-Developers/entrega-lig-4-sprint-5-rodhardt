@@ -12,7 +12,8 @@ let possibilities = [];
 let playerOneChoices = [];
 let playerTwoChoices = [];
 let arrWin = [];
-
+const audio1 = document.getElementById("audio1");
+const audio2 = document.getElementById("audio2");
 let currentColumn;
 
 let currentPlayer = "player1";
@@ -44,7 +45,7 @@ const light = () => {
 /* COMEÇO DAS FUNÇÕES */
 
 tableGenerator();
-
+audio();
 function game(event) {
   currentColumn = event.currentTarget;
 
@@ -259,5 +260,16 @@ const possibilitiesGenerator = () => {
   diagonalUpGenerator();
 };
 possibilitiesGenerator();
+
+function audio() {
+  if (window.matchMedia("(min-width: 600px)").matches) {
+    audio1.play();
+    audio1.volume = 0.2;
+  } else {
+    audio2.play();
+    audio2.volume = 0.2;
+    console.log("a viewport menos que 800 pixels de largura");
+  }
+}
 
 /* FIM DAS FUNÇÕES */
