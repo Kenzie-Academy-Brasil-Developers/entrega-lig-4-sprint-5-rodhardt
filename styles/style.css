@@ -304,4 +304,18 @@ main {
   .modal{
     width: 30%;
   }
+  .goku{
+    background-image: url(../assets/img/gogo.png);
+    background-repeat: no-repeat;
+    background-size: 34%;
+    width: 363px;
+    height: 426px;
+    float: right;
+    position: fixed;
+    right: 55%;
+    bottom: 36%;
+    animation: dragon 3s infinite;
+    z-index: -1;
+  }
+
 }
