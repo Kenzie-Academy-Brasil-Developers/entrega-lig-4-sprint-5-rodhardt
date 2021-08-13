@@ -45,6 +45,12 @@ main {
 .column {
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
+}
+
+.column:hover {
+  background-color: rgb(250, 245, 245, 0.3);
+  cursor: pointer;
 }
 
 .square {
