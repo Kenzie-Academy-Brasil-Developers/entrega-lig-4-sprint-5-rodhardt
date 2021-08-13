@@ -160,10 +160,9 @@ start.addEventListener("click", () => {
   audio();
   mainGame.classList.remove('hidden')
   resetGame();
-  if (window.matchMedia("(max-width: 600px)").matches) {
-    dialog.classList.add("hidden")
-  }
-  // dialog.classList.add("hidden");
+
+  dialog.classList.add("hidden")
+
 });
 
 function resetGame() {
