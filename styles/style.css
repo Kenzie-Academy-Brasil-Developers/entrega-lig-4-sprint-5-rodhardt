@@ -4,6 +4,7 @@ body {
   height: 100vh;
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
 }
 
 header {
@@ -98,6 +99,7 @@ main {
   position: relative;
   margin: 0px auto;
   width: 90%;
+  max-width: 750px;
   height: 70vh;
   background-color: #07079ceb;
   border-radius: 15px;
@@ -125,7 +127,7 @@ main {
   line-height: 25px;
   font-family: monospace;
   font-size: 17px;
-  width: 300px;
+  width: 90%;
 }
 
 .box-button {
@@ -213,6 +215,11 @@ main {
 }
 
 @media screen and (min-width: 600px) {
+  
+  body {
+    background-size: cover;
+  }
+  
   .shenglong {
     background-image: url(drgao.png);
     width: 363px;
@@ -222,5 +229,11 @@ main {
     left: 64%;
     bottom: 36%;
     animation: dragon 3s infinite;
+  }
+
+  .dialogue {
+    margin-top: 48vh;
+    height: 195px;
+    width: 80%;
   }
 }
