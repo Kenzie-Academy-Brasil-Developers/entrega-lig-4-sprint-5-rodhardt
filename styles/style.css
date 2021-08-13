@@ -93,8 +93,8 @@ main {
 .player1 {
   background: url(../assets/img/playerOneBall.png);
   background-size: cover;
-  height: 38px;
-  width: 38px;
+  height: 40px;
+  width: 40px;
   clip-path: circle();
   border-radius: 100%;
   background-position-x: center;
@@ -103,8 +103,8 @@ main {
 .player2 {
   background: url(../assets/img/playerTwoBall.png);
   background-size: cover;
-  height: 38px;
-  width: 38px;
+  height: 40px;
+  width: 40px;
   clip-path: circle();
   background-position-x: center;
 }
@@ -312,4 +312,5 @@ main {
   .modal{
     width: 30%;
   }
+  
 }
