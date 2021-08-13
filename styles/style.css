@@ -4,7 +4,6 @@ body {
   background-repeat: no-repeat;
   background-position-x: -900px;
   margin: 0 auto;
-  min-width: 350px;
   max-width: 1000px;
 }
 
@@ -13,9 +12,8 @@ header {
 }
 
 .logo {
+  width: 200px;
   margin-left: 15px;
-  width: 340px;
-  height: 130px;
 }
 
 main {
@@ -27,15 +25,14 @@ main {
   justify-content: center;
   align-items: center;
   align-content: center;
-  min-width: 350px;
   max-width: 1000px;
 }
 
 .main-game {
   position: absolute;
-  width: 338px;
-  height: 320px;
-  left: calc(50% - 338px/2);
+  width: 274px;
+  height: 270px;
+  left: calc(50% - 274px/2);
   top: 100px;
   border-radius: 25px;
   display: flex;
@@ -56,8 +53,8 @@ main {
 }
 
 .square {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border: 1px solid black;
   border-radius: 50%;
   margin: 2px;
@@ -78,8 +75,8 @@ main {
 .disk {
   border-radius: 100%;
   background-position-x: center;
-  height: 40px;
-  width: 40px;
+  height: 32px;
+  width: 32px;
   clip-path: circle();
   position: relative;
   animation: ad 2s;
@@ -88,20 +85,13 @@ main {
 .player1 {
   background: url(../assets/img/playerOneBall.png);
   background-size: cover;
-  height: 40px;
-  width: 40px;
-  clip-path: circle();
-  border-radius: 100%;
-  background-position-x: center;
+
 }
 
 .player2 {
   background: url(../assets/img/playerTwoBall.png);
   background-size: cover;
-  height: 40px;
-  width: 40px;
-  clip-path: circle();
-  background-position-x: center;
+
 }
 
 @keyframes ad {
@@ -171,7 +161,6 @@ main {
   color: whitesmoke;
   font-size: 1.5rem;
   border: none;
-  box-shadow: black;
   cursor: pointer;
   border-radius: 25px;
   background-color: rgb(23, 134, 23);
@@ -262,6 +251,28 @@ main {
     
   }
 
+  .logo {
+    margin-left: 15px;
+    width: 340px;
+    height: 130px;
+  }
+
+  .square {
+    width: 40px;
+    height: 40px;
+  }
+
+  .disk {
+    height: 40px;
+    width: 40px;
+  }
+
+  .main-game {
+    width: 338px;
+    height: 320px;
+    left: calc(50% - 338px/2);
+
+  }
 
 }
 
@@ -272,9 +283,6 @@ main {
     background-size: cover;
   }
   
-  header {
-    text-align: left;
-  }
 
   .main-game {
     width: 365px;
