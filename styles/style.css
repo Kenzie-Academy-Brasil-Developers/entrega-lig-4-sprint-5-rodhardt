@@ -296,9 +296,9 @@ main {
     width: 363px;
     height: 426px;
     float: right;
-    position: absolute;
+    position: fixed;
     left: 64%;
-    bottom: 31%;
+    bottom: 36%;
     animation: dragon 3s infinite;
     z-index: -1;
   }
