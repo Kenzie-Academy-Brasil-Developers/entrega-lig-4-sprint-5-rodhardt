@@ -36,11 +36,14 @@ main {
   height: 320px;
   left: calc(50% - 338px/2);
   top: 200px;
-  background: rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5.5px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .column {
@@ -55,10 +58,9 @@ main {
   border-radius: 50%;
   margin: 2px;
   box-sizing: border-box;
-
   animation: loading 2s infinite;
   border-left-color: #fcff61;
-
+  background-color: #00000052;
 }
 
 @keyframes loading {
