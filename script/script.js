@@ -4,7 +4,6 @@ const tableID = [];
 let colNumber = 7;
 let rowNumber = 6;
 let combinationCircle = 4;
-const title = document.getElementById("text1");
 let maxColCombination = colNumber - combinationCircle + 1;
 let maxRowCombination = rowNumber - combinationCircle + 1;
 let maxDiagonalDownCombination = ""; //?
@@ -260,14 +259,5 @@ const possibilitiesGenerator = () => {
   diagonalUpGenerator();
 };
 possibilitiesGenerator();
-
-function typeWriter(elemento) {
-  const textoArray = elemento.innerHTML.split("");
-  elemento.innerHTML = "";
-  textoArray.forEach((letra, i) => {
-    setTimeout(() => (elemento.innerHTML += letra), 75 * i);
-  });
-}
-typeWriter(title);
 
 /* FIM DAS FUNÇÕES */
