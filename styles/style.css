@@ -4,7 +4,6 @@ body {
   height: 100vh;
   background-repeat: no-repeat;
   background-position: center;
-  min-width: 350px;
 }
 
 header {
@@ -27,23 +26,19 @@ main {
   justify-content: center;
   align-items: center;
   align-content: center;
-  min-width: 350px;
 }
 
 .main-game {
   position: absolute;
   width: 338px;
   height: 320px;
-  left: calc(50% - 338px/2);
+  left: calc(50% - 338px / 2);
   top: 200px;
+  background: rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba( 255, 255, 255, 0.05 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 5.5px );
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .column {
@@ -58,18 +53,6 @@ main {
   border-radius: 50%;
   margin: 2px;
   box-sizing: border-box;
-  animation: loading 2s infinite;
-  border-left-color: #fcff61;
-  background-color: #00000052;
-}
-
-@keyframes loading {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .disk {
@@ -80,9 +63,7 @@ main {
   clip-path: circle();
 }
 
-
 .player1 {
-
   background: url(../assets/img/playerOneBall.png);
   background-size: cover;
   height: 40px;
@@ -101,7 +82,6 @@ main {
   background-position-x: center;
 }
 
-
 @keyframes dragon {
   0% {
     transform: translateY(0px);
@@ -114,7 +94,6 @@ main {
   }
 }
 
-
 .dialogue {
   position: relative;
   margin: 0px auto;
@@ -123,7 +102,6 @@ main {
   background-color: #07079ceb;
   border-radius: 15px;
   border: 4px double aliceblue;
-  min-width: 350px;
 }
 
 .dialogue > h1 {
@@ -134,24 +112,10 @@ main {
   font-weight: 700;
 }
 
-.winner{
+.winner {
   box-shadow: 0px 0px 32px 10px #ffeb33;
   position: relative;
   animation: mymove 1s infinite;
-}
-
-.border {
-  animation: animated-cursor 600ms steps(30, end) infinite;
-
-}
-
-@keyframes animated-cursor {
-  from {
-    border-bottom-color: rgba(71, 153, 71, 0.75);
-  }
-  to {
-    border-bottom-color: orange;
-  }
 }
 
 .dialogue > p {
@@ -161,22 +125,7 @@ main {
   line-height: 25px;
   font-family: monospace;
   font-size: 17px;
-  width: 726px;
-}
-
-#text1 {
-  overflow: hidden;
-  white-space: nowrap;
-  animation: animated-text 2s steps(30, end) 1s 1 normal both;
-}
-
-@keyframes animated-text {
-  from {
-    width: 0;
-  }
-  to {
-    width: 700px;
-  }
+  width: 300px;
 }
 
 .box-button {
@@ -204,16 +153,21 @@ main {
 }
 
 @keyframes mymove {
-0%   {box-shadow: 0px 0px 32px 5px #fff9c8;}
-50%  {box-shadow: 0px 0px 32px 15px #fff9c8;}
-100% {box-shadow: 0px 0px 32px 20px #fff9c8;}
+  0% {
+    box-shadow: 0px 0px 32px 5px #fff9c8;
+  }
+  50% {
+    box-shadow: 0px 0px 32px 10px #fff9c8;
+  }
+  100% {
+    box-shadow: 0px 0px 32px 25px #fff9c8;
+  }
 }
-
 
 .containerModal {
   width: 100%;
   height: 100vh;
-  background: rgba(0,0,0,.5);
+  background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -259,7 +213,6 @@ main {
 }
 
 @media screen and (min-width: 600px) {
-  
   .shenglong {
     background-image: url(drgao.png);
     width: 363px;
@@ -269,6 +222,5 @@ main {
     left: 64%;
     bottom: 36%;
     animation: dragon 3s infinite;
-    z-index: -1;
   }
 }
