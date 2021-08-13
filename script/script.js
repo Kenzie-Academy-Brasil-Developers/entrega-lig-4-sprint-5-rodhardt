@@ -4,7 +4,6 @@ const tableID = [];
 let colNumber = 7;
 let rowNumber = 6;
 let combinationCircle = 4;
-const title = document.getElementById("text1");
 let maxColCombination = colNumber - combinationCircle + 1;
 let maxRowCombination = rowNumber - combinationCircle + 1;
 let maxDiagonalDownCombination = ""; //?
@@ -13,7 +12,8 @@ let possibilities = [];
 let playerOneChoices = [];
 let playerTwoChoices = [];
 let arrWin = [];
-
+const audio1 = document.getElementById("audio1");
+const audio2 = document.getElementById("audio2");
 let currentColumn;
 
 let currentPlayer = "player1";
@@ -44,6 +44,9 @@ const light = () => {
 
 /* COMEÇO DAS FUNÇÕES */
 
+
+
+audio();
 
 function game(event) {
   currentColumn = event.currentTarget;
@@ -260,13 +263,15 @@ const possibilitiesGenerator = () => {
 };
 possibilitiesGenerator();
 
-function typeWriter(elemento) {
-  const textoArray = elemento.innerHTML.split("");
-  elemento.innerHTML = "";
-  textoArray.forEach((letra, i) => {
-    setTimeout(() => (elemento.innerHTML += letra), 75 * i);
-  });
+function audio() {
+  if (window.matchMedia("(min-width: 600px)").matches) {
+    audio1.play();
+    audio1.volume = 0.2;
+  } else {
+    audio2.play();
+    audio2.volume = 0.2;
+    console.log("a viewport menos que 800 pixels de largura");
+  }
 }
-typeWriter(title);
 
 /* FIM DAS FUNÇÕES */
