@@ -46,7 +46,7 @@ const light = () => {
 
 
 
-audio();
+
 
 function game(event) {
   currentColumn = event.currentTarget;
@@ -157,6 +157,7 @@ const showResult = (results) => {
 
 reset.addEventListener("click", resetGame);
 start.addEventListener("click", () => {
+  audio();
   mainGame.classList.remove('hidden')
   resetGame();
   if (window.matchMedia("(max-width: 600px)").matches) {
