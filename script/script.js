@@ -44,7 +44,6 @@ const light = () => {
 
 /* COMEÇO DAS FUNÇÕES */
 
-tableGenerator();
 
 function game(event) {
   currentColumn = event.currentTarget;
@@ -155,7 +154,7 @@ const showResult = (results) => {
 
 reset.addEventListener("click", resetGame);
 start.addEventListener("click", () => {
-  resetGame;
+  resetGame();
 
   dialog.classList.add("hidden");
 });
