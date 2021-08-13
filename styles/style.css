@@ -62,6 +62,8 @@ main {
   height: 40px;
   width: 40px;
   clip-path: circle();
+  position: relative;
+  animation: ad 2s;
 }
 
 .player1 {
@@ -81,6 +83,15 @@ main {
   width: 38px;
   clip-path: circle();
   background-position-x: center;
+}
+
+
+  
+
+@keyframes ad {
+  from {top: -200px;}
+  to {top: 0px;}
+  
 }
 
 @keyframes dragon {
