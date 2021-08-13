@@ -159,7 +159,9 @@ reset.addEventListener("click", resetGame);
 start.addEventListener("click", () => {
   mainGame.classList.remove('hidden')
   resetGame();
-
+  if (window.matchMedia("(max-width: 600px)").matches) {
+    dialog.classList.add("hidden")
+  }
   // dialog.classList.add("hidden");
 });
 
