@@ -40,11 +40,7 @@ main {
   top: 100px;
   border-radius: 25px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba( 255, 255, 255, 0.05 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 5.5px );
+  juskdrop-filter: blur( 5.5px );
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
@@ -89,7 +85,6 @@ main {
   animation: ad 2s;
 }
 
-
 .player1 {
   background: url(../assets/img/playerOneBall.png);
   background-size: cover;
@@ -108,9 +103,6 @@ main {
   clip-path: circle();
   background-position-x: center;
 }
-
-
-  
 
 @keyframes ad {
   from {top: -100px;}
@@ -132,10 +124,10 @@ main {
 
 .dialogue {
   position: relative;
-  margin: 40% auto;
+  margin: 70px auto;
   width: 90%;
   max-width: 750px;
-  height: 300px;
+  height: 350px;
   background-color: #07079ceb;
   border-radius: 15px;
   border: 4px double aliceblue;
@@ -261,9 +253,7 @@ main {
   display: none;
 }
 
-
 @media screen and (min-width: 600px) {
-
   body {
     background-size: cover;
   }
@@ -314,5 +304,4 @@ main {
   .modal{
     width: 30%;
   }
-  
 }
